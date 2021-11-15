@@ -17,10 +17,8 @@ int _printf(const char *format, ...)
 
 	if ((format == NULL) || (*(format) == '%' && *(format + 1) == '\0'))
 		return (-1);
-
 	if (*(format) == '\0')
 		return (0);
-
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -45,10 +43,7 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
-
 	_putchar(buffer, ptrb - (char *)buffer);
-
 	va_end(conten);
-
 	return (count);
 }
