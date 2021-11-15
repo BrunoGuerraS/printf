@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 	va_list conten;
 	int i = 0;
 	int (*f)(va_list, char **buff);
-	int count = 1;
+	int count = 0;
 	char buffer[2500];
 	char *ptrb = buffer;
 
