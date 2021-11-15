@@ -14,7 +14,6 @@ int _printf(const char *format, ...)
 	char *ptrb = buffer;
 
 	va_start(conten, format);
-
 	if ((format == NULL) || (*(format) == '%' && *(format + 1) == '\0'))
 		return (-1);
 	if (*(format) == '\0')
@@ -27,7 +26,8 @@ int _printf(const char *format, ...)
 			if (f != 0)
 			{
 				count += f(conten, &ptrb);
-				i++;
+				i  += 2;
+				continue;
 			}
 			if (format[i + 1] == '%')
 			{
@@ -40,10 +40,9 @@ int _printf(const char *format, ...)
 			*ptrb = format[i];
 			ptrb++;
 			count++;
+			i++;
 		}
-		i++;
 	}
-	_putchar(buffer, ptrb - (char *)buffer);
 	va_end(conten);
-	return (count);
+	return (_putchar(buffer, ptrb - (char *)buffer));
 }
