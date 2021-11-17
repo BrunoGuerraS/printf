@@ -33,7 +33,12 @@ int _printf(const char *format, ...)
 				*ptrb = '%';
 				ptrb++;
 				i += 2;
+				continue;
 			}
+			*ptrb = format[i];
+			ptrb++;
+			i++;
+			
 		}
 		else
 		{
