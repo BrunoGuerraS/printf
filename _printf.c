@@ -7,10 +7,8 @@
 int _printf(const char *format, ...)
 {
 	va_list conten;
-	int i = 0;
-	int (*f)(va_list, char **buff);
-	char buffer[2500];
-	char *ptrb = buffer;
+	int i = 0, (*f)(va_list, char **buff);
+	char buffer[2500], *ptrb = buffer;
 
 	va_start(conten, format);
 	if ((format == NULL) || (*(format) == '%' && *(format + 1) == '\0'))
@@ -38,7 +36,6 @@ int _printf(const char *format, ...)
 			*ptrb = format[i];
 			ptrb++;
 			i++;
-			
 		}
 		else
 		{
