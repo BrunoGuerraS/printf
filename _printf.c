@@ -9,7 +9,6 @@ int _printf(const char *format, ...)
 	va_list conten;
 	int i = 0;
 	int (*f)(va_list, char **buff);
-	int count = 0;
 	char buffer[2500];
 	char *ptrb = buffer;
 
@@ -25,7 +24,7 @@ int _printf(const char *format, ...)
 			f = get_type_data(format[i + 1]);
 			if (f != 0)
 			{
-				count += f(conten, &ptrb);
+				f(conten, &ptrb);
 				i  += 2;
 				continue;
 			}
@@ -33,13 +32,13 @@ int _printf(const char *format, ...)
 			{
 				*ptrb = '%';
 				ptrb++;
+				i += 2;
 			}
 		}
 		else
 		{
 			*ptrb = format[i];
 			ptrb++;
-			count++;
 			i++;
 		}
 	}
