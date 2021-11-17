@@ -8,7 +8,7 @@ int _printf(const char *format, ...)
 {
 	va_list conten;
 	int i = 0, (*f)(va_list, char **buff);
-	char buffer[2500], *ptrb = buffer;
+	char buffer[2500]; char *ptrb = buffer;
 
 	va_start(conten, format);
 	if ((format == NULL) || (*(format) == '%' && *(format + 1) == '\0'))
@@ -33,16 +33,10 @@ int _printf(const char *format, ...)
 				i += 2;
 				continue;
 			}
-			*ptrb = format[i];
-			ptrb++;
-			i++;
 		}
-		else
-		{
-			*ptrb = format[i];
-			ptrb++;
-			i++;
-		}
+		*ptrb = format[i];
+		ptrb++;
+		i++;
 	}
 	va_end(conten);
 	return (_putchar(buffer, ptrb - (char *)buffer));
