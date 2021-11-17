@@ -7,9 +7,9 @@
  */
 int _handelId(va_list tp, char **buff)
 {
-	int dato = va_arg(ptr, int);
+	char dato = va_arg(tp, int);
 	**buff = dato;
-	(*buff)++
+	(*buff)++;
 
 	return (0);
 }
