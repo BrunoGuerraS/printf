@@ -11,6 +11,8 @@ int _string(va_list tp, char **buff)
 
 	char *dato = va_arg(tp, char*);
 
+	if (dato == NULL)
+		dato = "(null)";
 	while (*dato != '\0')
 	{
 		**buff = *dato;
